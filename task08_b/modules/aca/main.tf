@@ -55,7 +55,7 @@ resource "azurerm_container_app_environment" "main_aca_environment" {
   tags                       = var.tags
 
   workload_profile {
-    name = "${var.resource_group_name}workloadprof"
+    name                  = "${var.resource_group_name}workloadprof"
     workload_profile_type = var.aca_workload_profile_type
   }
 
