@@ -6,5 +6,5 @@ locals {
   keyvault_name  = format("%s-kv", var.resources_name_prefix)
   redis_aci_name = format("%s-redis", var.resources_name_prefix)
   rg_name        = format("%s-rg", var.resources_name_prefix)
-  sa_name        = format("%s-sa", var.resources_name_prefix)
+  sa_name        = format("%ssa", var.resources_name_prefix)
 }
