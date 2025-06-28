@@ -1,5 +1,5 @@
 tags     = { Creator = "vladyslav_levchenko@epam.com" }
-location = "East US"
+location = "North Europe"
 
 app_source_directory = "./application"
 redis_hostname       = "redis-hostname"
