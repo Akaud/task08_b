@@ -16,7 +16,7 @@ module "keyvault" {
 
 module "aci_redis" {
   source                     = "./modules/aci_redis"
-  resource_group_name        = azurerm_resource_group.resource_group.name
+  resource_group_name        = local.rg_name
   location                   = var.location
   aci_name                   = local.redis_aci_name
   key_vault_id               = module.keyvault.key_vault_id
@@ -27,8 +27,8 @@ module "aci_redis" {
 }
 
 module "storage" {
-  source                           = "./modules/"
-  resource_group_name              = azurerm_resource_group.resource_group.name
+  source                           = "./modules/storage"
+  resource_group_name              = local.rg_name
   location                         = var.location
   storage_account_name             = local.sa_name
   storage_container_name           = var.sa_container_name
@@ -41,7 +41,7 @@ module "storage" {
 
 module "acr" {
   source                         = "./modules/acr"
-  resource_group_name            = azurerm_resource_group.resource_group.name
+  resource_group_name            = local.rg_name
   location                       = var.location
   acr_name                       = local.acr_name
   acr_sku                        = var.acr_sku
@@ -58,7 +58,7 @@ module "acr" {
 module "aca" {
   source                     = "./modules/aca"
   location                   = var.location
-  resource_group_name        = azurerm_resource_group.resource_group.name
+  resource_group_name        = local.rg_name
   aca_environment_name       = local.aca_env_name
   aca_name                   = local.aca_name
   image_name                 = var.image_name
@@ -80,7 +80,7 @@ module "aca" {
 module "aks" {
   source                  = "./modules/aks"
   location                = var.location
-  resource_group_name     = azurerm_resource_group.resource_group.name
+  resource_group_name     = local.rg_name
   tags                    = var.tags
   acr_id                  = module.acr.acr_id
   acr_login_server        = module.acr.acr_login_server
