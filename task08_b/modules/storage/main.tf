@@ -77,6 +77,7 @@ data "azurerm_storage_account_sas" "app_source_container_sas" {
   https_only = true
 
   depends_on = [
+    azurerm_storage_account.app_content_sa,
     azurerm_storage_container.app_content_container,
     time_static.sas_start_time,
     time_offset.sas_expiry_time
