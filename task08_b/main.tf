@@ -65,6 +65,7 @@ module "aca" {
   key_vault_id               = module.keyvault.key_vault_id
   key_vault_uri              = module.keyvault.key_vault_uri
   acr_id                     = module.acr.acr_id
+  aca_workload_profile_type  = var.aca_workload_profile_type
   acr_login_server           = module.acr.acr_login_server
   redis_password_secret_name = var.redis_password
   redis_hostname_secret_name = var.redis_hostname

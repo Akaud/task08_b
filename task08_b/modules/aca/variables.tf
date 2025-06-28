@@ -57,3 +57,8 @@ variable "tags" {
   description = "A map of tags to assign to the resources."
   type        = map(string)
 }
+
+variable "aca_workload_profile_type" {
+  description = "Workload profile type for aca"
+  type        = string
+}

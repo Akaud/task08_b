@@ -54,6 +54,11 @@ resource "azurerm_container_app_environment" "main_aca_environment" {
   log_analytics_workspace_id = azurerm_log_analytics_workspace.aca_logs.id
   tags                       = var.tags
 
+  workload_profile {
+    name = "${var.resource_group_name}workloadprof"
+    workload_profile_type = var.aca_workload_profile_type
+  }
+
   depends_on = [
     azurerm_log_analytics_workspace.aca_logs
   ]
@@ -69,7 +74,7 @@ resource "azurerm_container_app" "main_aca" {
     type         = "UserAssigned"
     identity_ids = [azurerm_user_assigned_identity.aca_identity.id]
   }
-
+  workload_profile_name = "${var.resource_group_name}workloadprof"
   secret {
     name                = "redis-url"
     key_vault_secret_id = "${var.key_vault_uri}secrets/${var.redis_hostname_secret_name}"
