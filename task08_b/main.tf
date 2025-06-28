@@ -27,7 +27,7 @@ module "aci_redis" {
 }
 
 module "storage" {
-  source                           = "./modules/storage"
+  source                           = "./modules/"
   resource_group_name              = azurerm_resource_group.resource_group.name
   location                         = var.location
   storage_account_name             = local.sa_name
