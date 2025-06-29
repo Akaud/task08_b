@@ -5,8 +5,7 @@ output "redis_fqdn" {
 
 output "aca_fqdn" {
   description = "The FQDN of the Azure Container App."
-  value       = data.azurerm_container_app.aca_actual_state.ingress[0].fqdn
-  depends_on  = [data.azurerm_container_app.aca_actual_state]
+  value       = module.aca.aca_fqdn
 }
 
 output "aks_lb_ip" {
