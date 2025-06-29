@@ -133,5 +133,5 @@ data "azurerm_client_config" "current" {}
 data "azurerm_container_app" "aca_actual_state" {
   name                = local.aca_name
   resource_group_name = local.rg_name
-  depends_on          = [module.aca.azurerm_container_app.main_aca]
+  depends_on          = [module.aca]
 }
